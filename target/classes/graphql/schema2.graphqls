@@ -1,0 +1,23 @@
+extend type Query{
+    getAllFilms:[film]
+}
+
+type film {
+    filmId : ID!,
+    name : String,
+    dateOfLaunch : String
+}
+
+input FilmMuatationInput{
+    filmName:String,
+    id:Int
+}
+
+type Mutation{
+    updateFilmName(id:Int,name:String):film,
+    updateFilmNameByInputObject(input:FilmMuatationInput):film
+}
+
+type Subscription{
+    onFilmUpdate(id:Int):film
+}
